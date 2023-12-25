@@ -17,7 +17,7 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 
 - Python 3.8 or higher
 - Access to OpenAI GPT-4 API 
-- Tesseract OCR installed for text recognition
+- Tesseract OCR for text recognition
 - Pokerstars client
 
 ## Installation
