@@ -1,6 +1,6 @@
 # PokerGPT - GPT4 poker bot for Pokerstars
 
-PokerGPT is an advanced online poker-playing bot for Pokerstars(6-player Texas Holdem, Cash game) that utilizes the OpenAI GPT-4 API for real-time game state analysis and decision-making.
+PokerGPT is an advanced online poker-playing bot for Pokerstars(6-player Texas Hold'em, Cash game) that utilizes the OpenAI GPT-4 API for real-time game state analysis and decision-making.
 It has built-in GUI to visualize poker data + voice support to playback actions on the table.
 
 ## Features
@@ -32,11 +32,11 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 
 ## Usage
 
-To start the PokerGPT bot, follow these steps:
+To start the PokerGPT, follow these steps:
 
 1. Open Pokerstars client and ensure it's visible on the screen.
 2. Run `main.py` to initiate the bot: `python main.py`.
-3. Enter your player number (player number starts from bottom and goes clockwise 1, 2, 3, 4, 5, 6)
+3. Enter your own player number (player numbers start from the bottom of the table and goes clockwise 1(bottom), 2(bottom-left), 3(top-eft), 4(top), 5(top-right), 6(bottom-right))
 4. The bot will automatically locate the poker window and start playing based on the GPT-4 strategy analysis.
 
 
@@ -51,6 +51,12 @@ To start the PokerGPT bot, follow these steps:
 - `main.py`: Entry point for running the bot.
 - `poker_assistant.py`: Interfaces with OpenAI's API to analyze the game state and decide on actions.
 - `read_poker_table.py`: Uses OCR and pixel detection to read the table state.
+
+## Limitations
+- Dependant on the Pokerstars client window size (PokerGPT automatically resizes to small window)
+- Might not work on all screen resolutions (tested on '1920 x 1080' pixel screen resolution, Windows 11)
+- Works only in Pokerstars 6-Player table.
+- 
 
 ## Contributing
 
