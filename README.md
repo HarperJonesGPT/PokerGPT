@@ -6,7 +6,7 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 ## Features
 
 - Real-time detection of game events by reading pixels on the screen.
-- Uses Tesseract OCR API to recognize cards, pot sizes, dealer button and player actions.
+- Uses Tesseract OCR API to recognize cards, pot sizes, dealer button and all player actions.
 - Uses 'gpt-4-1106-preview' to analyze the game data and players.
 - Advanced GPT-4 prompt engineering for analyzing game states, player exploitation and strategizing.
 - Simulates mouse clicks within the Pokerstars client for automated gameplay.
@@ -26,7 +26,7 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 3. Set up your OpenAI API key in the `pokergpt.env` file.
 4. Make sure Tesseract OCR is installed and its path is correctly set in the scripts(Tesseract is part of this code).
 
-#Pokerstars client setup:
+## PokerStars client (Visual) setup:
 1. Since this bot reads all of the data from the poker client window, you will need to setup the visuals excactly like in this image:
 ![PokerTable2](https://github.com/HarperJonesGPT/PokerGPT/assets/154810617/ba0a7bc5-d2d1-4237-bfd8-015ca2ca14e9)
 2.Disable all animations for Pokerstars client in the table settings.
