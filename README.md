@@ -14,8 +14,7 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 ## Prerequisites
 
 - Python 3.8 or higher
-- Access to OpenAI GPT-4 API (register free account at https://openai.com/ and get your API key: https://platform.openai.com/api-keys)
-- Input your OpenAI API key to pokergpt.env file like this: OPENAI_API_KEY = sk-PUT?YOUR?REAL?API?KEY?HERE
+- Access to OpenAI GPT-4 API 
 - Tesseract OCR installed for text recognition
 - Pokerstars client
 
@@ -23,7 +22,7 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 
 1. Clone the repository to your local machine.
 2. Install the required Python dependencies by running `pip install -r requirements.txt`.
-3. Set up your OpenAI API key in the `pokergpt.env` file.
+3. Set up your OpenAI API key in the `pokergpt.env` file. (register free account at https://openai.com/ and get your API key here: https://platform.openai.com/api-keys)
 4. Make sure Tesseract OCR is installed and its path is correctly set in the scripts(Tesseract is part of this code).
 
 ## PokerStars client (Visual) setup:
