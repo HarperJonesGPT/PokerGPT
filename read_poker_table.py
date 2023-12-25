@@ -6,7 +6,6 @@ import cv2
 import numpy as np
 import pyautogui
 import pytesseract
-import pygetwindow as gw
 import time
 from datetime import datetime
 

@@ -20,13 +20,11 @@ class AudioPlayer:
         self.sound_active       = True                                  # Set to False if you don't want to play any voiceovers.
 
 
-
     def add_to_queue(self, file_name):
 
         # Add an audio file to the queue
         self.audio_queue.put(file_name)
         self.play_next_audio()
-
 
 
     def play_next_audio(self):
@@ -46,7 +44,6 @@ class AudioPlayer:
             self.play_next_audio()  # Play the next audio in the queue
 
 
-
     def convert_text_to_speech(self, text):
         
         if self.sound_active is False:
@@ -60,7 +57,7 @@ class AudioPlayer:
             input=text
         )
 
-          # Generate a timestamp for the file name
+        # Generate a timestamp for the file name
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         speech_file_name = f"GPT4_Analysis_Result_{timestamp}.mp3"
 
@@ -77,8 +74,6 @@ class AudioPlayer:
         return final_return_audio_path
     
 
-
-
     def play_speech(self, text):
 
         # Convert text to speech and get the file path
@@ -88,8 +83,7 @@ class AudioPlayer:
         self.add_to_queue(str(speech_file_path))
 
 
-
-    # Player methods
+    # Player actions Audio
     def play_bet_audio(self, player_number):
         file_name = f'Player_Bet/Player_{player_number}_Bet.mp3'
         self.add_to_queue(file_name)
@@ -127,8 +121,7 @@ class AudioPlayer:
         self.add_to_queue(file_name)
 
 
-
-    # Methods for Board Stage
+    # Audio for Board Stage
     def play_board_flop_audio(self):
         self.add_to_queue('Board_Stage/Flop.mp3')
 
@@ -145,8 +138,7 @@ class AudioPlayer:
         self.add_to_queue('Board_Stage/Turn.mp3')
 
 
-
-    # Methods for Hero Player
+    # Audio for Hero Player
     def play_hero_is_big_blind_audio(self):
         self.add_to_queue('Hero/Hero_is_big_blind.mp3')
 

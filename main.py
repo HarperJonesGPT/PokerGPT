@@ -14,7 +14,7 @@ from hero_info              import HeroInfo
 
 def main():
 
-     # Ask the user for the hero player number
+    # Ask the user for the hero player number ( 1- 6 , starting from bottom(1))
     while True:
         try:
             hero_player_number = int(input("Enter hero player number (1-6): "))

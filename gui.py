@@ -4,7 +4,6 @@ import tkinter.font as tkFont
 from tkinter        import scrolledtext
 from tkinter        import ttk
 
-
 class GUI:
 
     def __init__( self, game_state, poker_assistant):
@@ -20,7 +19,7 @@ class GUI:
 
 
         # List of possible titles
-        possible_titles = ["PuzzlePie2", "TwistyTal1", "JumpStat", "Frozenv2", "Shoppingliss", "CosmicCook", "FunnyFarm5", "NotionB", "MotionC", "GlassJar", "TravelBuddyv, CloudyCanvasv, SunnySideUp, DreamDoodle"]
+        possible_titles = ["dfsdfdsfsd", "24234234", "552423", "24324", "123424", "8967991", "507341", "412355", "5234234655", "664544545211", "343242343256, 2443243252532, 55525, 65465345"]
 
         # Select a random title from the list
         random_title = random.choice(possible_titles)

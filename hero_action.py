@@ -81,15 +81,6 @@ class HeroAction:
         self.click_button(button_coordinates)
 
     #-----------------------------------------------------
-    """
-    EXAMPLE:
-
-    button_coordinates = {
-    "x": 0.25,  # Numerical x coordinate
-    "y": 0.75   # Numerical y coordinate
-    }
-    
-    """
     
     def click_button( self, button_coordinates ):
         """Click a button in the poker client window."""
@@ -125,7 +116,7 @@ class HeroAction:
 
     #-----------------------------------------------------
 
-    # Sets the maximum bet size (so we can go All-in!)
+    # Sets the maximum bet size (so we can go All-in!) *NOT USED*
     def click_max_bet_button(self):
         """Click the 'Max' button in the poker client window."""
 
@@ -194,14 +185,6 @@ class HeroAction:
         start_abs_y     = self.window.top   + int(self.window.height    * start_rel_y)
         end_abs_x       = self.window.left  + int(self.window.width     * end_rel_x)
         end_abs_y       = self.window.top   + int(self.window.height    * end_rel_y)
-
-        # Generate a random float value
-        #random_float = random.uniform(-0.03, 0.03)
-
-        #start_abs_x += random_float 
-        #start_abs_y += random_float
-        #end_abs_x   += random_float
-        #end_abs_y   += random_float
 
         # Perform the click and drag
         pyautogui.moveTo(start_abs_x, start_abs_y, duration=duration)

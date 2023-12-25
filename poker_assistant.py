@@ -1,7 +1,6 @@
-import re
 import time
-from colorama import Fore                             # Import the time module
-import pygame                           # Module for playing audio
+from colorama import Fore 
+import pygame 
 import json
 
 class PokerAssistant:
@@ -127,7 +126,7 @@ class PokerAssistant:
             user_message_prompt = self.create_user_prompt( realtime_game_data )
 
 
-            print(F"{Fore.BLUE}analyze_game_state_with_gpt4() -> USER INPUT PROMPT:\n {user_message_prompt}")
+            #print(F"{Fore.BLUE}analyze_game_state_with_gpt4() -> USER INPUT PROMPT:\n {user_message_prompt}")
             
             start_time = time.time()  # Record the start time before making the API call
 
@@ -311,7 +310,6 @@ class PokerAssistant:
 
                     self.audio_player.play_speech(f"Hero ACTION: {extracted_action} {action_amount_match} dollars. Go!")
                 else:
-                    #self.execute_check_or_fold()
                     self.hero_action.execute_action(None, "Fold", None)
                     print(f"{Fore.RED}No matching button found for action '{extracted_action}'.")
 
@@ -354,9 +352,6 @@ class PokerAssistant:
             print(f"{Fore.RED} execute_check_or_fold(): Neither 'Check' nor 'Fold' action available.")
       
 
-
-
-
     def format_historical_data(self, historical_data):
         print(F"{Fore.RED}historical_data = \n {historical_data}")
         print(F"{Fore.RED}--------------------------------------")
@@ -368,7 +363,6 @@ class PokerAssistant:
                 formatted_output += part + "\n"
 
         return formatted_output
-
 
 
     # This method is called by read_poker_table.py
@@ -474,9 +468,9 @@ class PokerAssistant:
             player_number = int(player['player_number'])  # Convert to integer
             #print(f"{Fore.YELLOW}Processing player {player_number}.")
 
-            player_type_str         = "- " + player['player_style']
+            player_type_str             = "- " + player['player_style']
 
-            exploitation_strategy_str = "- " + player['exploitation_strategy']
+            exploitation_strategy_str   = "- " + player['exploitation_strategy']
             
             # Append formatted data to the list
             player_data_to_write.append(f"Player{player_number}:\n{player_type_str}\n{exploitation_strategy_str}\n")
@@ -491,214 +485,3 @@ class PokerAssistant:
             file.writelines(player_data_to_write)
 
         print(f"{Fore.YELLOW}Completed parsing and updating player analysis.")
-
-
-
-
-hero_positions = {
-    "UTG": {
-        """
-        #Pre-flop guidelines for Early Position (UTG):
-        Hand ranges: 
-        - Strong Pairs: TT, JJ, QQ, KK, AA 
-        - Strong Aces: AJ, AQ, AK
-        - Strong Suited Connectors: KQs, QJs, JTs
-        - Strong Suited Aces: AJs, AQs, AKs
-
-        Strategy: 
-        - Play tight but strong. Your range is dominated by high pairs and strong aces.
-        Approach: 
-        - Raise with your entire range. Be prepared to 3-bet if re-raised, especially with QQ+, AK.
-        Post-Flop: 
-        - Play straightforward. Value bet strong hands, be cautious with AJ, AQ on high-card boards.
-        """
-    },
-    "MP": {
-        """
-        #Pre-flop guidelines for Middle Position (MP)
-        Hand ranges: 
-        - Medium to Strong Pairs: 77, 88, 99, TT, JJ, QQ, KK, AA
-        - Good Aces: AT, AJ, AQ, AK
-        - Broadway Cards: KQ, KJ, QJ
-        - Suited Connectors: 98s, T9s, JTs
-        - Suited Aces: A9s, ATs, AJs, AQs, AKs
-
-        Strategy: 
-        - Slightly looser than UTG, but still relatively tight.
-        Approach: 
-        - Open-raise with your range. Mix in some 3-bets with JJ+, AQ+ when facing raises, especially from earlier positions.
-        Post-Flop: 
-        - Bet for value with top pairs, overpairs. Consider the board texture and opponent type when playing medium pairs or suited connectors.
-        """
-    },
-    "HJ": {
-        """
-        #Pre-flop guidelines for Hijack (HJ)
-        Hand ranges:
-        - Low to Strong Pairs: 66, 77, 88, 99, TT, JJ, QQ, KK, AA
-        - Broadway Hands: KJ, QJ, KQ
-        - Suited Connectors: 87s, 98s, T9s, JTs
-        - Suited Aces: A7s, A8s, A9s, ATs, AJs, AQs, AKs
-        - Offsuit Aces: AJo, AQo, AKo
-
-        Strategy: 
-        - Start to loosen up. You can afford to be more aggressive.
-        Approach: 
-        - Raise most of your range. 3-bet with strong pairs and AK, AQ. Include occasional light 3-bets with suited connectors.
-        Post-Flop: 
-        - Continue aggression with top pairs, strong draws. Mix in some bluffs against tighter opponents.
-        """
-    },
-    "CO": {
-        """
-        #Pre-flop guidelines for Cutoff (CO)
-        Hand ranges: 
-        - Low to Strong Pairs: 55, 66, 77, 88, 99, TT, JJ, QQ, KK, AA
-        - Broadway Hands: KTo, QJo, KJo, QTo
-        - Suited Connectors: 76s, 87s, 98s, T9s, JTs
-        - Suited Aces: A5s, A6s, A7s, A8s, A9s, ATs, AJs, AQs, AKs
-        - Suited Kings: K9s, KTs, KJs, KQs
-
-        Strategy: 
-        - Be more aggressive getting closer to the button.
-        Approach: 
-        - Open-raise liberally. 3-bet with your strong hands and suited connectors as semi-bluff hands.
-        Post-Flop: 
-        - Apply pressure, especially when heads-up. Use position to control the size of the pot.
-        """
-
-    },
-    "BTN": {
-        """"
-        #Pre-flop guidelines for Button (BTN)
-        Hand ranges: 
-        - All Pairs: 22, 33, 44, 55, 66, 77, 88, 99, TT, JJ, QQ, KK, AA
-        - Broadway Hands: KTo, QTo, JTo, KJo, QJo, KQo
-        - Suited Connectors: 65s, 76s, 87s, 98s, T9s, JTs, QTs, KTs
-        - Suited Aces: A2s, A3s, A4s, A5s, A6s, A7s, A8s, A9s, ATs, AJs, AQs, AKs
-        - Suited Kings: K8s, K9s, KTs, KJs, KQs
-        - Suited Queens: Q9s, QTs, QJs
-        - Offsuit Aces: A8o, A9o, ATo, AJo, AQo, AKo
-
-        Strategy: 
-        - Maximum aggression. This is your chance to steal blinds and assert dominance.
-        Approach: 
-        - Raise a wide range, including small pairs and suited connectors. 3-bet against CO and HJ opens with a mixed range.
-        Post-Flop: 
-        - Use position to your advantage. Float often, and don't be afraid to bluff on later streets.
-        """
-    },
-    "SB": {
-        """
-        #Pre-flop guidelines for Small Blind (SB)
-        Hand ranges: 
-        - All Pairs: 22, 33, 44, 55, 66, 77, 88, 99, TT, JJ, QQ, KK, AA
-        - Broadway Hands: K9o, QTo, JTo, KTo, QJo, KJo
-        - Suited Connectors: 65s, 76s, 87s, 98s, T9s, JTs, QTs, KTs
-        - Suited Aces: A2s, A3s, A4s, A5s, A6s, A7s, A8s, A9s, ATs, AJs, AQs, AKs
-        - Suited Kings: K7s, K8s, K9s, KTs, KJs
-        - Suited Queens: Q8s, Q9s, QTs, QJs
-        - Offsuit Aces: A7o, A8o, A9o, ATo, AJo, AQo, AKo
-
-        Strategy: 
-        - Be selective but aggressive. You're out of position post-flop.
-        Approach: 
-        - 3-bet more against BTN opens. Call with playable hands but be ready to play out of position.
-        Post-Flop: 
-        - Defend aggressively against the BB. Be wary post-flop due to position - don't overplay medium-strength hands.
-        """
-    },
-    "BB": {
-        """
-        #Pre-flop guidelines for Big Blind (BB)
-        Defending Range: 
-        - Wide range, including suited connectors (54s, 64s, 75s, 86s, 97s, T8s) and lower pairs (22, 33, 44),
-
-        Strategy: 
-        - Defend your blind wisely. Don't be afraid to play back but be mindful of your positional disadvantage.
-        Approach: 
-        - Call with a wide range to defend your blind, especially against SB and BTN opens. 3-bet with strong hands.
-        Post-Flop: 
-        - Play cautiously but don't be a pushover. Look for opportunities to exploit positional weaknesses of opponents, especially in the SB.
-        """
-    }
-}
-
-string_test_gpt_response = """
-{
-    "players": [
-        {
-            "player_number": "1",
-            "player_id": "Player1",
-            "player_style": "Tight-Passive",
-            "profile": {
-                "general_behavior": "Player1 seems to play a conservative game, often folding pre-flop and not engaging without strong hands.",
-                "hand_range": "Likely has a narrow hand range, playing premium hands and strong holdings.",
-                "post_flop_behavior": "Tends to check or call, showing passive behavior post-flop.",
-                "bluffing_tendency": "Bluffing is likely infrequent, as the player shows caution in their play."
-            },
-            "exploitation_strategy": "Bluff Player1 out of pots, but be cautious when they show aggression, as it usually indicates a strong hand."
-        },
-        {
-            "player_number": "2",
-            "player_id": "Player2",
-            "player_style": "Tight-Aggressive",
-            "profile": {
-                "general_behavior": "Player2 is selective with their starting hands but shows aggression when they do play, as seen with large pre-flop raises and continuation bets.",
-                "hand_range": "Prefers strong starting hands and is likely to raise with them pre-flop.",
-                "post_flop_behavior": "Continues aggression post-flop, betting and raising with likely strong hands.",
-                "bluffing_tendency": "Bluffing may be part of their strategy but is done with consideration to their tight image."
-            },
-            "exploitation_strategy": "Respect their raises and tight image. Look to play pots in position against them and exploit their predictability."
-        },
-        {
-            "player_number": "3",
-            "player_id": "Player3",
-            "player_style": "Loose-Passive",
-            "profile": {
-                "general_behavior": "Player3 plays many hands with little aggression, often calling pre-flop and making small bets post-flop.",
-                "hand_range": "Wide hand range, willing to see flops with marginal hands.",
-                "post_flop_behavior": "Makes small bets and calls, showing a passive approach to post-flop play.",
-                "bluffing_tendency": "Bluffing seems less frequent, as the player prefers to call rather than raise."
-            },
-            "exploitation_strategy": "Value bet more frequently with strong hands. Avoid bluffing as they are prone to call with weaker hands."
-        },
-        {
-            "player_number": "4",
-            "player_id": "Player4",
-            "player_style": "Hybrid Player",
-            "profile": {
-                "general_behavior": "Player4 shows adaptability in their play, sometimes folding pre-flop and other times showing aggression.",
-                "hand_range": "Variable hand range, adjusting based on table dynamics.",
-                "post_flop_behavior": "Capable of both checking and betting post-flop, indicating a balanced approach.",
-                "bluffing_tendency": "Bluffing is likely part of their strategy, but done with a sense of balance."
-            },
-            "exploitation_strategy": "Continuously adjust your strategy to counter theirs. Be aware of their adaptability and try to stay one step ahead."
-        },
-        {
-            "player_number": "5",
-            "player_id": "Hero",
-            "player_style": "Shark",
-            "profile": {
-                "general_behavior": "Hero demonstrates a skilled and balanced approach, capable of both GTO and exploitative play.",
-                "hand_range": "Balanced hand range, playing both strong and marginal hands effectively.",
-                "post_flop_behavior": "Shows a nuanced understanding of post-flop play, betting with strong hands and folding when appropriate.",
-                "bluffing_tendency": "Capable of bluffing but does so in a calculated manner."
-            },
-            "exploitation_strategy": "Focus on balanced ranges, and look for patterns or weaknesses in their game."
-        },
-        {
-            "player_number": "6",
-            "player_id": "Player6",
-            "player_style": "The Calling Station",
-            "profile": {
-                "general_behavior": "Player6 tends to call bets often with little aggression, indicating a loose-passive style.",
-                "hand_range": "Wide range, as they are willing to call with many different hands.",
-                "post_flop_behavior": "Passive post-flop play, often checking and calling rather than leading out with bets.",
-                "bluffing_tendency": "Bluffing is not a common part of their strategy; they prefer to call and see showdowns."
-            },
-            "exploitation_strategy": "Value bet more frequently with strong hands. Avoid bluffing as they are prone to call with weaker hands."
-        }
-    ]
-}
-"""

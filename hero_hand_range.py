@@ -7,7 +7,9 @@ class PokerHandRangeDetector:
     def is_hand_in_range(self, hero_cards):
         """
         Check if the given hand contains a pair or an Ace, King, Queen, or Jack.
-        :param hero_cards: A list of cards representing the hand (e.g., ['Q♠', 'Q♦']).
+
+        hero_cards: A list of cards representing the hand (e.g., ['Q♠', 'Q♦']).
+        
         :return: True if the hand contains a pair or any of these high cards, False otherwise.
         """
         # Mapping for card ranks, including '10'
