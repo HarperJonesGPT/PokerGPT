@@ -1,4 +1,4 @@
-# PokerGPT Bot
+# PokerGPT - GPT4 poker bot for Pokerstars
 
 PokerGPT is an advanced online poker-playing bot for Pokerstars(6-player Texas Holdem, Cash game) that utilizes the OpenAI GPT-4 API for real-time game state analysis and decision-making.
 It has built-in GUI to visualize poker data + voice support to playback actions on the table.
