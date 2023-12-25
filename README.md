@@ -6,15 +6,16 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 ## Features
 
 - Real-time detection of game events by reading pixels on the screen.
-- Uses 'gpt-4-1106-preview'
 - Uses Tesseract OCR API to recognize cards, pot sizes, dealer button and player actions.
+- Uses 'gpt-4-1106-preview' to analyze the game data and players.
 - Advanced GPT-4 prompt engineering for analyzing game states, player exploitation and strategizing.
-- Simulates mouse clicks within the poker client for automated gameplay.
+- Simulates mouse clicks within the Pokerstars client for automated gameplay.
 
 ## Prerequisites
 
 - Python 3.8 or higher
-- Access to OpenAI GPT-4 API
+- Access to OpenAI GPT-4 API (register free account at https://openai.com/ and get your API key: https://platform.openai.com/api-keys)
+- Input your OpenAI API key to pokergpt.env file like this: OPENAI_API_KEY = sk-PUT?YOUR?REAL?API?KEY?HERE
 - Tesseract OCR installed for text recognition
 - Pokerstars client
 
@@ -25,6 +26,11 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 3. Set up your OpenAI API key in the `pokergpt.env` file.
 4. Make sure Tesseract OCR is installed and its path is correctly set in the scripts(Tesseract is part of this code).
 
+#Pokerstars client setup:
+1. Since this bot reads all of the data from the poker client window, you will need to setup the visuals excactly like in this image:
+![PokerTable2](https://github.com/HarperJonesGPT/PokerGPT/assets/154810617/ba0a7bc5-d2d1-4237-bfd8-015ca2ca14e9)
+2.Disable all animations for Pokerstars client in the table settings.
+
 ## Usage
 
 To start the PokerGPT bot, follow these steps:
@@ -33,6 +39,7 @@ To start the PokerGPT bot, follow these steps:
 2. Run `main.py` to initiate the bot: `python main.py`.
 3. Enter your player number (player number starts from bottom and goes clockwise 1, 2, 3, 4, 5, 6)
 4. The bot will automatically locate the poker window and start playing based on the GPT-4 strategy analysis.
+
 
 ## Structure
 
