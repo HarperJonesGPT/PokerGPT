@@ -25,7 +25,7 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 1. Clone the repository to your local machine.
 2. Install the required Python dependencies by running `pip install -r requirements.txt`.
 3. Set up your OpenAI API key in the `pokergpt.env` file. (register free account at https://openai.com/ and get your API key here: https://platform.openai.com/api-keys)
-4. Make sure Tesseract OCR is installed and its path is correctly set in the scripts(Tesseract is part of this code).
+4. Make sure Tesseract OCR is installed and its path is correctly set in the scripts(Tesseract is included and path set).
 
 ## PokerStars client (Visual) setup:
 1. Since this bot reads all of the data from the poker client window, you will need to setup the visuals excactly like in this image:
