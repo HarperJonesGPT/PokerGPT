@@ -17,7 +17,7 @@ class AudioPlayer:
 
         self.is_playing         = False                                 # Flag to check if an audio is currently being played
 
-        self.sound_active        = False
+        self.sound_active       = True                                  # Set to False if you don't want to play any voiceovers.
 
 
 

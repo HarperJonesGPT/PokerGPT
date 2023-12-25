@@ -1,8 +1,6 @@
-import datetime
 import os
 import time
 import re
-from colorama import Fore
 import pygetwindow as gw
 
 class GameState:

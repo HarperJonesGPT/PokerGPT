@@ -302,7 +302,7 @@ class PokerAssistant:
                     if button_info['action'][:4].lower() in extracted_action.lower():
                         button_coordinates = button_info['pos']
                         matching_action = button_info['action']
-                        print(F"{Fore.CYAN}execute_action = {matching_action}")
+                        #print(F"{Fore.CYAN}execute_action = {matching_action}")
                         break
 
                 if button_coordinates and len(button_coordinates) == 2:
@@ -464,7 +464,7 @@ class PokerAssistant:
 
     def parse_and_update_player_analysis(self, player_analysis_json):
 
-        print(f"{Fore.YELLOW}Parsing player analysis JSON.")
+        #print(f"{Fore.YELLOW}Parsing player analysis JSON.")
 
         data = json.loads(player_analysis_json)
         player_data_to_write = []  # List to store data for writing to file
@@ -472,7 +472,7 @@ class PokerAssistant:
         for player in data['players']:
 
             player_number = int(player['player_number'])  # Convert to integer
-            print(f"{Fore.YELLOW}Processing player {player_number}.")
+            #print(f"{Fore.YELLOW}Processing player {player_number}.")
 
             player_type_str         = "- " + player['player_style']
 

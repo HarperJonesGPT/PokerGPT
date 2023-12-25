@@ -1,5 +1,4 @@
 import os
-import time
 import openai
 import pygetwindow as gw
 from colorama import init
