@@ -7,7 +7,7 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 
 - Real-time detection of game events by reading pixels on the screen.
 - Uses Tesseract OCR API to recognize cards, pot sizes, dealer button and all player actions.
-- Uses 'gpt-4-1106-preview' to analyze the game data and players.
+- Uses 'gpt-4-1106-preview' to analyze the game data and players in order to take appriopriate action(fold, check, raise, bet etc).
 - Advanced GPT-4 prompt engineering for analyzing game states, player exploitation and strategizing.
 - Simulates mouse clicks within the Pokerstars client for automated gameplay.
 
