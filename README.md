@@ -56,7 +56,7 @@ To start the PokerGPT, follow these steps:
 - Dependant on the Pokerstars client window size (PokerGPT automatically resizes to small window)
 - Might not work on all screen resolutions (tested on '1920 x 1080' pixel screen resolution, Windows 11)
 - Works only in Pokerstars 6-Player table.
-- 
+- Image reading(OCR) speed is dependant on your CPU.
 
 ## Contributing
 
