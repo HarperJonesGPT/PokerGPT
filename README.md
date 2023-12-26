@@ -29,8 +29,9 @@ It has built-in GUI to visualize poker data + voice support to playback actions 
 
 ## PokerStars client (Visual) setup:
 1. Since this bot reads all of the data from the poker client window, you will need to setup the visuals excactly like in this image:
+2. Disable all animations for Pokerstars client in the table settings.
 ![PokerTable2](https://github.com/HarperJonesGPT/PokerGPT/assets/154810617/ba0a7bc5-d2d1-4237-bfd8-015ca2ca14e9)
-2.Disable all animations for Pokerstars client in the table settings.
+
 
 ## Usage
 
